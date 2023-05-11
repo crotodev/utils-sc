@@ -27,12 +27,11 @@ lazy val root = (project in file("."))
       "-encoding",
       "UTF-8",
       "-feature",
-      "-language:existentials,higherKinds,implicitConversions,postfixOps",
       "-unchecked",
       "-Xfatal-warnings",
-      "-Xlint",
+      "-Xlint:_,-missing-interpolator",
       "-Yno-adapted-args",
-      "-Ywarn-dead-code,numeric-widen,unused-import,value-discard",
+      "-Ywarn-unused-import",
       "-Xfuture"
     )
   )
