@@ -9,9 +9,6 @@ lazy val root = (project in file("."))
     version := "0.0.1",
     scalaVersion := "2.12.17",
     startYear := Some(2023),
-    licenses += ("Apache-2.0", url(
-      "https://www.apache.org/licenses/LICENSE-2.0.txt"
-    )),
     idePackagePrefix := Some("io.github.crotodev.utils"),
     libraryDependencies ++= Seq(
       "com.joestelmach"   % "natty"              % "0.13",
@@ -33,15 +30,17 @@ lazy val root = (project in file("."))
       "-Yno-adapted-args",
       "-Ywarn-unused-import",
       "-Xfuture"
+    ),
+    assembly / assemblyMergeStrategy := {
+      case "module-info.class" => MergeStrategy.discard
+      case x                   => (assembly / assemblyMergeStrategy).value(x)
+    },
+    semanticdbEnabled := true,
+    onChangedBuildSource := ReloadOnSourceChanges,
+    Global / excludeLintKeys ++= Set(
+      Keys.publishMavenStyle,
+      onChangedBuildSource,
+      excludeLintKeys,
+      idePackagePrefix
     )
   )
-
-assembly / assemblyMergeStrategy := {
-  case "module-info.class" => MergeStrategy.discard
-  case x                   => (assembly / assemblyMergeStrategy).value(x)
-}
-
-semanticdbEnabled := true
-
-Global / onChangedBuildSource := ReloadOnSourceChanges
-Global / excludeLintKeys += idePackagePrefix
