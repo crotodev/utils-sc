@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Christian Rotondo
+ * Copyright 2023 crotodev
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,9 +18,9 @@
 package io.github.crotodev.utils
 
 /**
- * A trait representing a base builder for type T.
+ * A trait representing something buildable for type T.
  */
-trait BaseBuilder[T] {
+trait Buildable[T] {
 
   /**
    * Build the type T

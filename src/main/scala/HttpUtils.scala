@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Christian Rotondo
+ * Copyright 2023 crotodev
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ object HttpUtils {
    * @param system  the actor system in which the request is made.
    * @return the response entity unmarshalled to type A.
    */
-  def makeRequestWithMethod[A](
+  private def makeRequestWithMethod[A](
       method: HttpMethod,
       url: Uri,
       headers: List[HttpHeader],
