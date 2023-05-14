@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-// Builder.scala
+// Buildable.scala
 package io.github.crotodev.utils
 
 /**

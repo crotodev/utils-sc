@@ -17,7 +17,7 @@
 // DateTimeUtils.scala
 package io.github.crotodev.utils
 
-import com.joestelmach.natty.{ Parser => NattyParser }
+import com.joestelmach.natty.{Parser => NattyParser}
 
 import java.time._
 import java.time.format.DateTimeFormatter
@@ -140,8 +140,8 @@ trait DateTimeUtils {
    * @return The ZonedDateTime.
    */
   def localDateTimeToZonedDateTime(
-      dateTime: LocalDateTime,
-      timeZone: String
+    dateTime: LocalDateTime,
+    timeZone: String
   ): ZonedDateTime =
     ZonedDateTime.of(dateTime, ZoneId.of(timeZone))
 
@@ -154,4 +154,17 @@ trait DateTimeUtils {
   def zonedDateTimeToLocalDateTime(zonedDateTime: ZonedDateTime): LocalDateTime =
     zonedDateTime.toLocalDateTime
 
+}
+
+/**
+ * A companion object for DateTimeUtils.
+ */
+object DateTimeUtils {
+
+  /**
+    * Creates a new instance of DateTimeUtils.
+    *
+    * @return The new instance.
+    */
+  def apply(): DateTimeUtils = new DateTimeUtils {}
 }
