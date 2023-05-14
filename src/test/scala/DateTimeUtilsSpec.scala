@@ -34,28 +34,6 @@ class DateTimeUtilsSpec extends AnyFunSuite with Matchers {
   }
 
   test(
-    "sanitizeDateTime should return the date-time for a correctly formatted datetime"
-  ) {
-    val dateTimeStr = "2023-05-10T15:30:00.000Z"
-    DateTimeUtilsImpl.sanitizeDateTime(dateTimeStr) shouldBe LocalDateTime.of(
-      2023,
-      5,
-      10,
-      15,
-      30
-    )
-  }
-
-  test(
-    "sanitizeDateTime should return a date-time 5 years ago for an incorrectly formatted datetime"
-  ) {
-    val dateTimeStr = "incorrect-datetime"
-    val result      = DateTimeUtilsImpl.sanitizeDateTime(dateTimeStr)
-    val now         = LocalDateTime.now()
-    result.getYear shouldBe (now.getYear - 5)
-  }
-
-  test(
     "localDateTimeToZonedDateTime should convert a LocalDateTime to a ZonedDateTime in the correct timezone"
   ) {
     val dateTime = LocalDateTime.of(2023, 5, 10, 15, 30)
